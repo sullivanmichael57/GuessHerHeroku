@@ -1,3 +1,5 @@
+{% load static %}
+
 <html>
 <script>
 
@@ -139,9 +141,14 @@
 <script>
 
 
-var queens_unshuffled = ["Alaska.jpeg", "Alyssa Edwards.jpeg", "Bianca Del Rio.jpg","Bob.jpeg","Chi Chi Devayne.jpg","Detox.jpg","Ginger Minj.jpg","Jinkx.jpg","Katya.jpg","Laganja Estranja.jpeg","Milk.jpg","Naomi Smalls.jpg","Nina_Bonina_Brown.jpg","Pearl.png","Roxxxy Andrews.jpg","Sasha Velour.jpg","Shea Coulee.jpg","Tatianna.jpg","Trixie Mattel.jpg","Valentina.jpg","Violet Chachki.jpg","Willam.jpeg","adore delano.jpg","cynthia lee fontaine.jpg"];
+{#var queens_unshuffled = ["Alaska.jpeg", "Alyssa Edwards.jpeg", "Bianca Del Rio.jpg","Bob.jpeg","Chi Chi Devayne.jpg","Detox.jpg","Ginger Minj.jpg","Jinkx.jpg","Katya.jpg","Laganja Estranja.jpeg","Milk.jpg","Naomi Smalls.jpg","Nina_Bonina_Brown.jpg","Pearl.png","Roxxxy Andrews.jpg","Sasha Velour.jpg","Shea Coulee.jpg","Tatianna.jpg","Trixie Mattel.jpg","Valentina.jpg","Violet Chachki.jpg","Willam.jpeg","adore delano.jpg","cynthia lee fontaine.jpg"];#}
+{#queens_unshuffled = queens_unshuffled.map(function f(x) {return "static/" + x;});#}
 
-var queens = shuffle(queens_unshuffled);
+var queen_image_urls = {{ images|safe }};
+print(queen_image_urls[0]);
+var queens = shuffle(queen_image_urls);
+
+
 
 for (i=0;i<3;i++){
 	var tr = document.getElementById("row"+(i+1).toString());
@@ -150,8 +157,8 @@ for (i=0;i<3;i++){
 	  td.setAttribute("style","width:800px; background-color:darkcyan; text-align:center;vertical-align:middle");
 
 	  var img = document.createElement("img");
-	  img.setAttribute("id",queens[8*i+j])
-	  img.setAttribute("src", "images/" + queens[8*i+j]);
+	  img.setAttribute("id",queens[8*i+j]);
+	  img.setAttribute("src", queens[8*i+j]);
 	  img.onclick = function (){
 	  	flipGray(this.id);
 	  };

@@ -21,3 +21,5 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+
+    print("We got to migration")
