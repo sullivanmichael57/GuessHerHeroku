@@ -17,8 +17,7 @@ def queens(request):
     objects = s3client.list_objects_v2(
         Bucket = 'guess-her-heroku-static-files',
         Prefix = 'queens/')
-    object_keys = json.dumps(['https://guess-her-heroku-static-files.s3.us-east-2.amazonaws.com/' + object['Key'] for object in objects['Contents']])
-    print(object_keys)
+    object_keys = json.dumps(['https://guess-her-heroku-static-files.s3.us-east-2.amazonaws.com/' + obj['Key'] for obj in objects['Contents'] if obj['Key'][-1] != '/'])
 
     return render(request, "queens.html", {"images" : object_keys})
 

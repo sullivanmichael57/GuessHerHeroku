@@ -79,7 +79,7 @@
 </style>
 <head>
 	<div class="sidenav">
-		<img id="random_queen" src="images/Alaska.jpeg" style="width:90%" class="center">
+		<img id="random_queen" src="data:," style="width:90%" class="center" alt>
 		<button title="New Game" onclick="newGame()" style="width:50%;margin-top:40px;margin-bottom:40px;padding:20px" class="center">New Game</button>
 		<div class='dropdown-full-container'>
 			<button class="dropdown-btn">Season Wikipedia Links</button>
@@ -114,7 +114,7 @@
 
 <div class="main">
 	<div>
- 		<img src='https://github.com/sullivanmichael57/GuessHer2/blob/master/images/guess-who-yellow-logo.png?raw=true' alt='Guess Who!' style='height:25%;margin-left:auto;margin-right:auto;display:block'>
+ 		<img src="{% static 'guess-who-yellow-logo.png'%}" alt='Guess Who!' style='height:25%;margin-left:auto;margin-right:auto;display:block'>
 
 	</div>
 
@@ -145,7 +145,6 @@
 {#queens_unshuffled = queens_unshuffled.map(function f(x) {return "static/" + x;});#}
 
 var queen_image_urls = {{ images|safe }};
-print(queen_image_urls[0]);
 var queens = shuffle(queen_image_urls);
 
 
@@ -210,7 +209,7 @@ function shuffle(array) {
 
 function newGame() {
 	clearQueens();
-	document.getElementById('random_queen').src = "images/" + getRandomQueen();
+	document.getElementById('random_queen').src = getRandomQueen();
 }
 
 function getRandomQueen(){
