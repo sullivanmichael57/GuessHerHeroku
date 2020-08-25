@@ -1,0 +1,239 @@
+<html>
+<script>
+
+</script>
+
+<style>
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 20%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+
+.main {
+  margin-right: 20%; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+
+.queenimage {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+  margin-bottom: 40px;
+
+}
+
+.active {
+  background-color: green;
+  color: white;
+}
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+
+.dropdown-full-container {
+  height:75%;
+  overflow-y: auto;
+
+}
+
+
+
+</style>
+<head>
+	<div class="sidenav">
+		<img id="random_queen" src="images/Alaska.jpeg" style="width:90%" class="center">
+		<button title="New Game" onclick="newGame()" style="width:50%;margin-top:40px;margin-bottom:40px;padding:20px" class="center">New Game</button>
+		<div class='dropdown-full-container'>
+			<button class="dropdown-btn">Season Wikipedia Links</button>
+			<div class="dropdown-container">
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_1)" target='_blank'>Season 1</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_2)" target='_blank'>Season 2</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_3)" target='_blank'>Season 3</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_4)" target='_blank'>Season 4</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_5)" target='_blank'>Season 5</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_6)" target='_blank'>Season 6</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_7)" target='_blank'>Season 7</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_8)" target='_blank'>Season 8</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_9)" target='_blank'>Season 9</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_10)" target='_blank'>Season 10</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_11)" target='_blank'>Season 11</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_(Season_12)" target='_blank'>Season 12</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_1)" target='_blank'>All Stars Season 1</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_2)" target='_blank'>All Stars Season 2</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_3)" target='_blank'>All Stars Season 3</a>
+				<a href="https://rupaulsdragrace.fandom.com/wiki/RuPaul%27s_Drag_Race_All_Stars_(Season_4)" target='_blank'>All Stars Season 4</a>
+
+
+
+			</div>
+		</div>
+
+	</div>
+</head>
+<body style='background-color: white'>
+
+
+
+<div class="main">
+	<div>
+ 		<img src='https://github.com/sullivanmichael57/GuessHer2/blob/master/images/guess-who-yellow-logo.png?raw=true' alt='Guess Who!' style='height:25%;margin-left:auto;margin-right:auto;display:block'>
+
+	</div>
+
+	<div style="background-color: darkcyan;margin-left:1%;margin-right:1%">
+		<table style="width:100%;border: darkcyan;border-spacing: 10px;margin:auto">
+			<tr id='row1'>
+			</tr>
+			<tr id='row2'>
+			</tr>
+			<tr id='row3'>
+			</tr>
+
+		</table>
+		<!-- <div style="width:20%" style="background-color:blue" 	>
+			<div style="height:80%"/>
+			<div id="random_queen" style="max-height:20%">
+				<img src="images/Alaska.jpeg" style="width:800px">
+			</div>
+		</div> -->
+	</div>
+</div>
+
+
+<script>
+
+
+var queens_unshuffled = ["Alaska.jpeg", "Alyssa Edwards.jpeg", "Bianca Del Rio.jpg","Bob.jpeg","Chi Chi Devayne.jpg","Detox.jpg","Ginger Minj.jpg","Jinkx.jpg","Katya.jpg","Laganja Estranja.jpeg","Milk.jpg","Naomi Smalls.jpg","Nina_Bonina_Brown.jpg","Pearl.png","Roxxxy Andrews.jpg","Sasha Velour.jpg","Shea Coulee.jpg","Tatianna.jpg","Trixie Mattel.jpg","Valentina.jpg","Violet Chachki.jpg","Willam.jpeg","adore delano.jpg","cynthia lee fontaine.jpg"];
+
+var queens = shuffle(queens_unshuffled);
+
+for (i=0;i<3;i++){
+	var tr = document.getElementById("row"+(i+1).toString());
+	for (j=0; j<8; j++){
+	  var td = document.createElement("TD");
+	  td.setAttribute("style","width:800px; background-color:darkcyan; text-align:center;vertical-align:middle");
+
+	  var img = document.createElement("img");
+	  img.setAttribute("id",queens[8*i+j])
+	  img.setAttribute("src", "images/" + queens[8*i+j]);
+	  img.onclick = function (){
+	  	flipGray(this.id);
+	  };
+	  img.setAttribute("class","queenimage");
+	  img.setAttribute("style",'filter:grayscale(0%)');
+
+	  td.appendChild(img);
+
+	  tr.appendChild(td);
+	}
+}
+newGame();
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+
+
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
+function newGame() {
+	clearQueens();
+	document.getElementById('random_queen').src = "images/" + getRandomQueen();
+}
+
+function getRandomQueen(){
+	return queens[Math.floor(Math.random()*24)];
+
+}
+
+
+function clearQueens(){
+	for (i = 0; i < queens.length; i++){
+		document.getElementById(queens[i]).style.filter = 'grayscale(0%)';
+	}
+
+	return;
+
+}
+
+function flipGray(id){
+	img = document.getElementById(id);
+	if (img.style.filter == 'grayscale(100%)'){
+		img.style.filter = 'grayscale(0%)';
+	}
+	else{
+		img.style.filter = 'grayscale(100%)';
+	}
+
+
+}
+
+</script>
+</body>
+</html>
+
